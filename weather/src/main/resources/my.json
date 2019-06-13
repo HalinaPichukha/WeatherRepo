@@ -1,0 +1,54 @@
+{
+  "message": "like",
+  "cod": "200",
+  "count": 1,
+
+  "list":
+  [
+    {
+      "id": 625144,
+      "name": "Minsk",
+      "coord":
+          {
+            "lat": 53.9023,
+            "lon": 27.5619
+          },
+      "main":
+          {
+            "temp": 278.15,
+            "pressure": 1010,
+            "humidity": 80,
+            "temp_min": 278.15,
+            "temp_max": 278.15
+          },
+      "dt": 1554791400,
+      "wind":
+          {
+            "speed": 6,
+            "deg": 340
+          },
+      "sys":
+          {
+            "country": "BY"
+          },
+      "rain": null,
+      "snow": null,
+      "clouds":
+          {
+            "all": 0
+          },
+      "weather":
+          [
+            {
+              "id": 800,
+              "main": "Clear",
+              "description": "Sky is Clear",
+              "icon": "01d"
+            }
+          ]
+    }
+  ]
+
+
+
+}
