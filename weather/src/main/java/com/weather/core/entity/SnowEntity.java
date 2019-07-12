@@ -1,5 +1,6 @@
 package com.weather.core.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -12,8 +13,11 @@ import lombok.NoArgsConstructor;
 @Builder
 @Getter
 @EqualsAndHashCode
-public class WeatherEntity {
+public class SnowEntity {
 
-  private String main;
-  private String description;
+  @JsonProperty("1h")
+  private double oneHoursSnow;
+
+  @JsonProperty("3h")
+  private double threeHoursSnow;
 }

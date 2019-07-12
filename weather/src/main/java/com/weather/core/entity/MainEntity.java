@@ -12,8 +12,9 @@ import lombok.NoArgsConstructor;
 @Builder
 @Getter
 @EqualsAndHashCode
-public class WeatherEntity {
+public class MainEntity {
 
-  private String main;
-  private String description;
+  private double temp;
+  private double temp_min;
+  private double temp_max;
 }

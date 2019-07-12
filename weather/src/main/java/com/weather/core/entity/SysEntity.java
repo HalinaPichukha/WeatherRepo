@@ -12,8 +12,9 @@ import lombok.NoArgsConstructor;
 @Builder
 @Getter
 @EqualsAndHashCode
-public class WeatherEntity {
+public class SysEntity {
 
-  private String main;
-  private String description;
+  private String country;
+  private long sunrise;
+  private long sunset;
 }
