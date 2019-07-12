@@ -1,6 +1,6 @@
 package com.weather.api.controller;
 
-import com.weather.api.dto.WeatherDTO;
+import com.weather.api.dto.FullWeatherDTO;
 import com.weather.core.service.WeatherService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Api("/api/weather")
 public class WeatherRestController {
 
-  private WeatherService weatherService;
+  final private WeatherService weatherService;
 
   @Autowired
   public WeatherRestController(WeatherService weatherService) {
@@ -35,7 +35,7 @@ public class WeatherRestController {
           @ApiResponse(code = 401, message = "Unautothorized"),
           @ApiResponse(code = 500, message = "Internal server error")
       })
-  public WeatherDTO getWeather() {
-    return weatherService.getWeather();
+  public FullWeatherDTO getWeather() {
+    return weatherService.getFullWeather();
   }
 }

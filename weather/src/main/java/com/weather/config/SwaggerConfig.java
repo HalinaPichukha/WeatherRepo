@@ -17,7 +17,7 @@ public class SwaggerConfig {
 
   private ApiInfo apiInfo() {
     return new ApiInfoBuilder()
-        .title("WeatherEntity API")
+        .title("FullWeatherEntity API")
         .description("Whether predication API")
         .version("1.0")
         .build();

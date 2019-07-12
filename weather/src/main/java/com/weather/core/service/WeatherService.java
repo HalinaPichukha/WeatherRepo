@@ -1,8 +1,8 @@
 package com.weather.core.service;
 
-import com.weather.api.dto.WeatherDTO;
+import com.weather.api.dto.FullWeatherDTO;
 
 public interface WeatherService {
 
-  WeatherDTO getWeather();
+  FullWeatherDTO getFullWeather();
 }

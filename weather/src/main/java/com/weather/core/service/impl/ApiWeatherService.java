@@ -1,9 +1,9 @@
 package com.weather.core.service.impl;
 
-import com.weather.api.dto.WeatherDTO;
-import com.weather.api.mapper.WeatherMapper;
-import com.weather.core.entity.WeatherEntity;
-import com.weather.core.repository.WeatherRepository;
+import com.weather.api.dto.FullWeatherDTO;
+import com.weather.api.mapper.FullWeatherMapper;
+import com.weather.core.client.WeatherClient;
+import com.weather.core.exeption.ResourceNotFoundException;
 import com.weather.core.service.WeatherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,19 +11,21 @@ import org.springframework.stereotype.Service;
 @Service
 public class ApiWeatherService implements WeatherService {
 
-  private final WeatherRepository weatherRepository;
-  private final WeatherMapper weatherMapper;
+  private final WeatherClient weatherClient;
+  private final FullWeatherMapper fullWeatherMapper;
 
   @Autowired
-  public ApiWeatherService(WeatherRepository weatherRepository,
-      WeatherMapper weatherMapper) {
-    this.weatherRepository = weatherRepository;
-    this.weatherMapper = weatherMapper;
+  public ApiWeatherService(WeatherClient weatherClient,
+      FullWeatherMapper fullWeatherMapper) {
+    this.weatherClient = weatherClient;
+    this.fullWeatherMapper = fullWeatherMapper;
   }
 
   @Override
-  public WeatherDTO getWeather() {
-    final WeatherEntity weatherEntity = weatherRepository.getWeather();
-    return weatherMapper.convertEntityToDto(weatherEntity);
+  public FullWeatherDTO getFullWeather() {
+
+    return weatherClient.get()
+        .map(fullWeatherMapper::convertEntityToDto)
+        .orElseThrow(ResourceNotFoundException::new);
   }
 }
