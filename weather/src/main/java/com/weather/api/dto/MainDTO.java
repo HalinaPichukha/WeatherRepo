@@ -12,11 +12,12 @@ import lombok.Getter;
 @Builder(builderClassName = "Builder", toBuilder = true)
 @EqualsAndHashCode
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-@JsonDeserialize(builder = WeatherDTO.Builder.class)
-public class WeatherDTO {
+@JsonDeserialize(builder = MainDTO.Builder.class)
+public class MainDTO {
 
-  private String main;
-  private String description;
+  private double temp;
+  private double temp_min;
+  private double temp_max;
 
   @JsonPOJOBuilder(withPrefix = "")
   public static final class Builder {
