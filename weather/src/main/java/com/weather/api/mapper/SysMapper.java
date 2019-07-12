@@ -1,14 +1,14 @@
 package com.weather.api.mapper;
 
 import com.weather.api.dto.MainDTO;
-import com.weather.api.dto.WeatherDTO;
+import com.weather.api.dto.SysDTO;
 import com.weather.core.entity.MainEntity;
-import com.weather.core.entity.WeatherEntity;
+import com.weather.core.entity.SysEntity;
 import org.mapstruct.InjectionStrategy;
 import org.mapstruct.Mapper;
 
 @Mapper(injectionStrategy = InjectionStrategy.CONSTRUCTOR, componentModel = "spring")
-public interface WeatherMapper {
+public interface SysMapper {
 
-  WeatherDTO convertEntityToDto(final WeatherEntity weatherEntity);
+  SysDTO convertEntityToDto(final SysEntity sysEntity);
 }
