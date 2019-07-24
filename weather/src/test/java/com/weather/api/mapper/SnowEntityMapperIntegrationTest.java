@@ -16,8 +16,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class SnowEntityMapperIntegrationTest {
 
-  @Autowired
-  private SnowMapper snowMapper;
+  @Autowired private SnowMapper snowMapper;
 
   @Test
   public void testNullSnowMappedToNullDto() {
@@ -29,17 +28,20 @@ public class SnowEntityMapperIntegrationTest {
   @Test
   public void testThatSnowMapperShouldConvertEntityToDto() {
 
-    SnowEntity snowEntity = SnowEntity.builder()
-        .oneHoursSnow(0.0)
-        .threeHoursSnow(0.1)
-        .build();
+    SnowEntity snowEntity = SnowEntity.builder().oneHoursSnow(0.0).threeHoursSnow(0.1).build();
 
     SnowDTO snowDTO = snowMapper.convertEntityToDto(snowEntity);
 
     assertNotNull("Not null main can not be null", snowDTO);
-    assertEquals("Converted snow oneHoursSnow should match", 0,
-        Math.abs(snowEntity.getOneHoursSnow() - snowDTO.getOneHoursSnow()), 0.0);
-    assertEquals("Converted snow threeHoursSnow should match", 0,
-        Math.abs(snowEntity.getThreeHoursSnow() - snowDTO.getThreeHoursSnow()), 0.0);
+    assertEquals(
+        "Converted snow oneHoursSnow should match",
+        0,
+        Math.abs(snowEntity.getOneHoursSnow() - snowDTO.getOneHoursSnow()),
+        0.0);
+    assertEquals(
+        "Converted snow threeHoursSnow should match",
+        0,
+        Math.abs(snowEntity.getThreeHoursSnow() - snowDTO.getThreeHoursSnow()),
+        0.0);
   }
 }

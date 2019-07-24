@@ -15,8 +15,7 @@ public class ApiWeatherService implements WeatherService {
   private final FullWeatherMapper fullWeatherMapper;
 
   @Autowired
-  public ApiWeatherService(WeatherClient weatherClient,
-      FullWeatherMapper fullWeatherMapper) {
+  public ApiWeatherService(WeatherClient weatherClient, FullWeatherMapper fullWeatherMapper) {
     this.weatherClient = weatherClient;
     this.fullWeatherMapper = fullWeatherMapper;
   }
@@ -24,7 +23,8 @@ public class ApiWeatherService implements WeatherService {
   @Override
   public FullWeatherDTO getFullWeather(long id) {
 
-    return weatherClient.get(id)
+    return weatherClient
+        .get(id)
         .map(fullWeatherMapper::convertEntityToDto)
         .orElseThrow(ResourceNotFoundException::new);
   }

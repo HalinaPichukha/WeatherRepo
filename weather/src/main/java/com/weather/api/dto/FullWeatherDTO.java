@@ -2,8 +2,6 @@ package com.weather.api.dto;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
-import com.weather.core.entity.WeatherEntity;
-
 import java.io.Serializable;
 import java.util.List;
 import lombok.AccessLevel;
@@ -21,7 +19,7 @@ public class FullWeatherDTO implements Serializable {
 
   private String name;
   private long id;
-  private List<WeatherEntity> weather;
+  private List<WeatherDTO> weather;
   private TemperatureDTO temperature;
   private WindDTO wind;
   private CountryInfoDTO countryInfo;
@@ -29,7 +27,5 @@ public class FullWeatherDTO implements Serializable {
   private SnowDTO snow;
 
   @JsonPOJOBuilder(withPrefix = "")
-  public static final class Builder {
-
-  }
+  public static final class Builder {}
 }

@@ -8,7 +8,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 @Getter
 @Builder(builderClassName = "Builder", toBuilder = true)
@@ -24,6 +23,5 @@ public class SnowDTO {
   private double threeHoursSnow;
 
   @JsonPOJOBuilder(withPrefix = "")
-  public static final class Builder {
-  }
+  public static final class Builder {}
 }

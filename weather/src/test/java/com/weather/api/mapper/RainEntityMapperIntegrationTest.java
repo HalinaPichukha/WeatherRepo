@@ -16,8 +16,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class RainEntityMapperIntegrationTest {
 
-  @Autowired
-  private RainMapper rainMapper;
+  @Autowired private RainMapper rainMapper;
 
   @Test
   public void testNullRainMappedToNullDto() {
@@ -29,17 +28,20 @@ public class RainEntityMapperIntegrationTest {
   @Test
   public void testThatRainMapperShouldConvertEntityToDto() {
 
-    RainEntity rainEntity = RainEntity.builder()
-        .oneHoursRain(0.0)
-        .threeHoursRain(0.1)
-        .build();
+    RainEntity rainEntity = RainEntity.builder().oneHoursRain(0.0).threeHoursRain(0.1).build();
 
     RainDTO rainDTO = rainMapper.convertEntityToDto(rainEntity);
 
     assertNotNull("Not null main can not be null", rainDTO);
-    assertEquals("Converted rain oneHoursRain should match", 0,
-        Math.abs(rainEntity.getOneHoursRain() - rainDTO.getOneHoursRain()), 0.0);
-    assertEquals("Converted rain threeHoursRain should match", 0,
-        Math.abs(rainEntity.getThreeHoursRain() - rainDTO.getThreeHoursRain()), 0.0);
+    assertEquals(
+        "Converted rain oneHoursRain should match",
+        0,
+        Math.abs(rainEntity.getOneHoursRain() - rainDTO.getOneHoursRain()),
+        0.0);
+    assertEquals(
+        "Converted rain threeHoursRain should match",
+        0,
+        Math.abs(rainEntity.getThreeHoursRain() - rainDTO.getThreeHoursRain()),
+        0.0);
   }
 }

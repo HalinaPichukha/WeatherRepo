@@ -11,7 +11,6 @@ import org.springframework.web.client.RestTemplate;
 @Repository
 public class WeatherApiClient implements WeatherClient {
 
-//  private static final int CITY_ID = 625144;
   private static final String APPID = "dc313339c6815c0e796bc8940d427d2e";
 
   private static final String RESOURCE_URL =

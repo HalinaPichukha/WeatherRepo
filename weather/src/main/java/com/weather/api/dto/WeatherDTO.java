@@ -19,7 +19,5 @@ public class WeatherDTO {
   private String description;
 
   @JsonPOJOBuilder(withPrefix = "")
-  public static final class Builder {
-
-  }
+  public static final class Builder {}
 }

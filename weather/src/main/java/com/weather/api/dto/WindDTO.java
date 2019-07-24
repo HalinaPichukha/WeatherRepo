@@ -18,7 +18,5 @@ public class WindDTO {
   private double speed;
 
   @JsonPOJOBuilder(withPrefix = "")
-  public static final class Builder {
-
-  }
+  public static final class Builder {}
 }

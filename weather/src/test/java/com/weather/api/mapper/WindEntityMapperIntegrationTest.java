@@ -17,11 +17,11 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class WindEntityMapperIntegrationTest {
 
   @Autowired
-  private WindMapper windMapperж;
+  private WindMapper windMapper;
 
   @Test
   public void testNullWindMappedToNullDto() {
-    final WindDTO windDTO = windMapperж.convertEntityToDto(null);
+    final WindDTO windDTO = windMapper.convertEntityToDto(null);
 
     assertNull("Null wind entity should be converted to null dto", windDTO);
   }
@@ -31,7 +31,7 @@ public class WindEntityMapperIntegrationTest {
 
     WindEntity windEntity = WindEntity.builder().speed(0.1).build();
 
-    WindDTO windDTO = windMapperж.convertEntityToDto(windEntity);
+    WindDTO windDTO = windMapper.convertEntityToDto(windEntity);
 
     assertNotNull("Not null wind can not be null", windDTO);
     assertEquals("Converted wind speed should match", 0,

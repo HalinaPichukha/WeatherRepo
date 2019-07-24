@@ -20,7 +20,5 @@ public class CountryInfoDTO {
   private long sunset;
 
   @JsonPOJOBuilder(withPrefix = "")
-  public static final class Builder {
-
-  }
+  public static final class Builder {}
 }

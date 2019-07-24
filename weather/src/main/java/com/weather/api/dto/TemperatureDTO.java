@@ -20,7 +20,5 @@ public class TemperatureDTO {
   private double temp_max;
 
   @JsonPOJOBuilder(withPrefix = "")
-  public static final class Builder {
-
-  }
+  public static final class Builder {}
 }
