@@ -13,7 +13,7 @@ import org.mapstruct.Mapping;
       TemperatureMapper.class,
       RainMapper.class,
       SnowMapper.class,
-      SysMapper.class,
+      CountryInfoMapper.class,
       WeatherMapper.class,
       WindMapper.class,
       DateMapper.class
