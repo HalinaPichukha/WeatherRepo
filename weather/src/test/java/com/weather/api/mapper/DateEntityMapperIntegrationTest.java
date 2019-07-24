@@ -6,6 +6,7 @@ import static org.junit.Assert.assertNull;
 
 import com.weather.api.dto.DateDTO;
 import com.weather.core.entity.DateEntity;
+import java.util.Date;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class DateEntityMapperIntegrationTest {
 
   @Autowired private DateMapper dateMapper;
+
+  private static final long SECS = 1563961730;
 
   @Test
   public void testNullWeatherMappedToNullDto() {
@@ -33,6 +36,6 @@ public class DateEntityMapperIntegrationTest {
     DateDTO dateDTO = dateMapper.convertEntityToDto(dateEntity);
 
     assertNotNull("Not null date entity can not be null dto", dateDTO);
-    assertEquals("Converted date should match", 1563961730, dateDTO.getDate());
+    assertEquals("Converted date should match", new Date(SECS * 1000), dateDTO.getDate());
   }
 }
