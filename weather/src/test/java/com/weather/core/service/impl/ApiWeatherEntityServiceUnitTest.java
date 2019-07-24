@@ -20,6 +20,7 @@ import com.weather.core.entity.SnowEntity;
 import com.weather.core.entity.SysEntity;
 import com.weather.core.entity.WeatherEntity;
 import com.weather.core.entity.WindEntity;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import org.junit.Before;
@@ -33,6 +34,8 @@ public class ApiWeatherEntityServiceUnitTest {
   private FullWeatherDTO fullWeatherDTO;
 
   private static final int CITY_ID = 625144;
+  private static final long SECS = 1563961730;
+  private final Date date = new Date(SECS * 1000);
 
   @Mock private WeatherClient weatherClient = mock(WeatherClient.class);
 
@@ -63,7 +66,8 @@ public class ApiWeatherEntityServiceUnitTest {
             .weather(List.of(WeatherDTO.builder().main("main").description("description").build()))
             .temperature(TemperatureDTO.builder().temp(0.2).temp_min(0.1).temp_max(0.3).build())
             .wind(WindDTO.builder().speed(0.0).build())
-            .countryInfo(CountryInfoDTO.builder().country("Country").sunrise(1).sunset(2).build())
+            .countryInfo(
+                CountryInfoDTO.builder().country("Country").sunrise(date).sunset(date).build())
             .rain(RainDTO.builder().oneHoursRain(0.0).threeHoursRain(0.1).build())
             .snow(SnowDTO.builder().oneHoursSnow(0.0).oneHoursSnow(0.1).build())
             .build();
