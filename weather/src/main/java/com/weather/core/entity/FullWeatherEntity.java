@@ -24,4 +24,5 @@ public class FullWeatherEntity implements Serializable {
   private SysEntity sys;
   private RainEntity rain;
   private SnowEntity snow;
+  private DateEntity dt;
 }

@@ -15,11 +15,13 @@ import org.mapstruct.Mapping;
       SnowMapper.class,
       SysMapper.class,
       WeatherMapper.class,
-      WindMapper.class
+      WindMapper.class,
+      DateMapper.class
     })
 public interface FullWeatherMapper {
 
   @Mapping(source = "main", target = "temperature")
   @Mapping(source = "sys", target = "countryInfo")
+  @Mapping(source = "dt", target = "date")
   FullWeatherDTO convertEntityToDto(final FullWeatherEntity fullWeatherEntity);
 }
