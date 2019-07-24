@@ -12,8 +12,8 @@ import lombok.Getter;
 @Builder(builderClassName = "Builder", toBuilder = true)
 @EqualsAndHashCode
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-@JsonDeserialize(builder = SysDTO.Builder.class)
-public class SysDTO {
+@JsonDeserialize(builder = CountryInfoDTO.Builder.class)
+public class CountryInfoDTO {
 
   private String country;
   private long sunrise;

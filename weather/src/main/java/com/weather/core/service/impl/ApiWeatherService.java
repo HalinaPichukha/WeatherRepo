@@ -22,9 +22,9 @@ public class ApiWeatherService implements WeatherService {
   }
 
   @Override
-  public FullWeatherDTO getFullWeather() {
+  public FullWeatherDTO getFullWeather(long id) {
 
-    return weatherClient.get()
+    return weatherClient.get(id)
         .map(fullWeatherMapper::convertEntityToDto)
         .orElseThrow(ResourceNotFoundException::new);
   }

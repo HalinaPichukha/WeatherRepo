@@ -4,5 +4,5 @@ import com.weather.api.dto.FullWeatherDTO;
 
 public interface WeatherService {
 
-  FullWeatherDTO getFullWeather();
+  FullWeatherDTO getFullWeather(long id);
 }

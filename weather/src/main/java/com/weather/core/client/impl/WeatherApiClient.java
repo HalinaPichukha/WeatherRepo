@@ -11,7 +11,7 @@ import org.springframework.web.client.RestTemplate;
 @Repository
 public class WeatherApiClient implements WeatherClient {
 
-  private static final int CITY_ID = 625144;
+//  private static final int CITY_ID = 625144;
   private static final String APPID = "dc313339c6815c0e796bc8940d427d2e";
 
   private static final String RESOURCE_URL =
@@ -25,10 +25,10 @@ public class WeatherApiClient implements WeatherClient {
   }
 
   @Override
-  public Optional<FullWeatherEntity> get() {
+  public Optional<FullWeatherEntity> get(long id) {
 
     ResponseEntity<FullWeatherEntity> weatherEntityResponseEntity =
-        restTemplate.getForEntity(RESOURCE_URL, FullWeatherEntity.class, CITY_ID, APPID);
+        restTemplate.getForEntity(RESOURCE_URL, FullWeatherEntity.class, id, APPID);
 
     return Optional.ofNullable(weatherEntityResponseEntity.getBody());
   }

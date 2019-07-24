@@ -5,5 +5,5 @@ import java.util.Optional;
 
 public interface WeatherClient {
 
-  Optional<FullWeatherEntity> get();
+  Optional<FullWeatherEntity> get(long id);
 }

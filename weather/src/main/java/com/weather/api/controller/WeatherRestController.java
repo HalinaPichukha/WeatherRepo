@@ -2,13 +2,11 @@ package com.weather.api.controller;
 
 import com.weather.api.dto.FullWeatherDTO;
 import com.weather.core.service.WeatherService;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
+import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,7 +22,7 @@ public class WeatherRestController {
     this.weatherService = weatherService;
   }
 
-  @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+  @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
   @ApiOperation(
       value = "The weather in Minsk",
       notes = "Return a current weather for Minsk",
@@ -35,7 +33,9 @@ public class WeatherRestController {
           @ApiResponse(code = 401, message = "Unautothorized"),
           @ApiResponse(code = 500, message = "Internal server error")
       })
-  public FullWeatherDTO getWeather() {
-    return weatherService.getFullWeather();
+  public FullWeatherDTO getWeather(
+          @ApiParam(value = "type city ID to get info", required = true, example = "625144")
+          @PathVariable("id") long id) {
+    return weatherService.getFullWeather(id);
   }
 }

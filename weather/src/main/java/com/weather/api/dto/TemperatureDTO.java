@@ -12,8 +12,8 @@ import lombok.Getter;
 @Builder(builderClassName = "Builder", toBuilder = true)
 @EqualsAndHashCode
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-@JsonDeserialize(builder = MainDTO.Builder.class)
-public class MainDTO {
+@JsonDeserialize(builder = TemperatureDTO.Builder.class)
+public class TemperatureDTO {
 
   private double temp;
   private double temp_min;

@@ -1,8 +1,6 @@
 package com.weather.api.mapper;
 
-import com.weather.api.dto.MainDTO;
 import com.weather.api.dto.WeatherDTO;
-import com.weather.core.entity.MainEntity;
 import com.weather.core.entity.WeatherEntity;
 import org.mapstruct.InjectionStrategy;
 import org.mapstruct.Mapper;
