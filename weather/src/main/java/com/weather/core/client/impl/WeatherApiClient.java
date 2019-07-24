@@ -14,7 +14,7 @@ public class WeatherApiClient implements WeatherClient {
   private static final String APPID = "dc313339c6815c0e796bc8940d427d2e";
 
   private static final String RESOURCE_URL =
-      "http://api.openweathermap.org/data/2.5/weather?id={CITY_ID}&appid={APPID}";
+      "http://api.openweathermap.org/data/2.5/weather?id={CITY_ID}&appid={APPID}&units=metric";
 
   private RestTemplate restTemplate;
 
